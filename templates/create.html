@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}New Page{% endblock title %}
+{% block content %}
+<form method="POST" class="form-inline">
+	{{ form.hidden_tag() }}
+	{{ input(form.url, placeholder="URL") }}
+	<input type="submit" class="btn btn-success" value="Done">
+</form>
+{% endblock content %}
+
+

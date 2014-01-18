@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title -%}
+	Welcome!
+{% endblock title %}
+
+{% block content %}
+<p>You have not created any page, try it!</p>
+<p><a href="{{ url_for('edit', url='home') }}" class="btn btn-success">Creating</a></p>
+{% endblock %}

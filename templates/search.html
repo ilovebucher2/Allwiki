@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if search %}
+	Keyword "{{ search }}"
+{% else %}
+	Search
+{% endif %}
+{% endblock title %}
+
+{% block content %}
+<div class="row">
+	<div class="span5 offset1">
+		<form class="form-inline well" method="POST">
+			{{ form.hidden_tag() }}
+			{{ form.term(placeholder='') }}
+			<input type="submit" class="btn btn-success pull-right" value="Search">
+		</form>
+	</div>
+</div>
+
+{% if search %}
+	{% if results %}
+		<ul>
+			{% for result in results %}
+				<li><a href="{{ url_for('display', url=result.url) }}">{{ result.title }}</a></li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>There are nothing,Opps...</p>
+	{% endif %}
+{% endif %}
+{% endblock content %}
